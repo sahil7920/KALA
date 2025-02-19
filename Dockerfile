@@ -20,8 +20,8 @@ RUN apt-get update && apt-get install -y python3 python3-pip
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Telebot (pyTelegramBotAPI) इंस्टॉल करो (अगर requirements.txt में नहीं है)
-RUN pip3 install pyTelegramBotAPI
+# अतिरिक्त Python लाइब्रेरी इंस्टॉल करो
+RUN pip3 install --no-cache-dir telebot flask aiogram pyTelegramBotAPI python-telegram-bot
 
 # Flutter APK और Python स्क्रिप्ट को एक साथ रन करो
 CMD ["bash", "-c", "flutter build apk & python3 FLASH.py"]
